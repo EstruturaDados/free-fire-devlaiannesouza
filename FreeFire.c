@@ -21,9 +21,30 @@
  // --- Função auxiliar 
 
  int buscarPosicao (Item mochila[], int total, char ome []);
- 
-int main() {
 
+ //-----------------------------------------------------------
+
+int main() { 
+    Item mochila [MAX_ITENS];
+    int total = 0;
+    int opcao;
+    ]
+    do {
+        printf ("\n===== SITEMA DE INVENTÁRIO - MOCHILA INICIAL =====\n");
+        printf ("1 - Cadastrar item\n");
+        printf ("2 - Remover item \n");
+        printf ("3 - Listar item\n");
+        printf ("4 - Buscar item\n");
+        printf ("0 - Sair\n");
+        printf (" Escolha uma opcao:  ");
+        printf ("%d", &opcao);
+
+        getchar(); //limpar buffer 
+
+        
+
+
+    }
 
     return 0;
 }
