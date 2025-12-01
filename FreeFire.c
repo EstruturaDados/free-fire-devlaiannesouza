@@ -17,6 +17,11 @@
  void removerItem (Item mochila [], int *total);
  void listarItens (Item mochila[], int total);
  void buscarItens (Item mochila [], int total);
+
+ // --- Função auxiliar 
+
+ int buscarPosicao (Item mochila[], int total, char ome []);
+ 
 int main() {
 
 
