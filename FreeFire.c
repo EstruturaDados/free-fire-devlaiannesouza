@@ -95,4 +95,26 @@ void inserirItem(Item mochila[], int *total){
 }
 
 // -- REMOVE UM ITEM PELO NOME
+void removerItem (item mochila[], int *total){
+        char nomeBusca[30];
+
+        if (*total == 0){
+            printf ("\nA mochila está vazia!\n");
+            return;
+        
+        }
+        
+        printf ("\nDigite o nome item que deseja remover: ");
+        fgets(nomeBusca, 30, stdin);
+        nomeBusca[strcspn(nomeBusca, "\n")] = '\n';
+
+        int pos = buscarPosicao(mochila, *total, nomeBusca);
+
+        if (pos == -1){
+            printf ("\bItem não encontrado.\n");
+            return;
+        }
+
+        //Deslocar itens á esquerda
+    }
 
