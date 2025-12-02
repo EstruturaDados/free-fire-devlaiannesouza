@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
 #define MAX_ITENS 10
 
@@ -95,7 +94,7 @@ void inserirItem(Item mochila[], int *total){
 }
 
 // -- REMOVE UM ITEM PELO NOME
-void removerItem (item mochila[], int *total){
+void removerItem (Item mochila[], int *total){
         char nomeBusca[30];
 
         if (*total == 0){
@@ -116,5 +115,28 @@ void removerItem (item mochila[], int *total){
         }
 
         //Deslocar itens á esquerda
+        for (int i = pos; i < (*total)- 1; i++){
+            mochila[i] = mochila [i + 1];
+        }
+
+        (*total)--;
+
+        printf ("\n Item removido com sucesso!\n");
+        
+        listarItens(mochila, *total);
+        
     }
+//---  LISTA TODOS OS ITENS DA MOCHILA
+void listarItens (Item mochila[], int total){
+    printf("\n===== ITENS NA MOCHILA =====\n");
+
+    if (total== 0){
+        printf ("Mochila vazia.\n");
+        return;
+    }
+    for(int i=0; i< total; i++){
+        printf ("%d) Nome: %s | Tipo: %s | Quantidade: %s\n", i + 1, mochila[i].nome, mochila[i].tipo, mochila[i].quantidade);
+    }
+}
+//--- BUSCA SEQUENCIAL POR NOME
 
