@@ -54,7 +54,7 @@ int main() {
                 buscarItem(mochila, total);
                 break;
             case 0:
-                printf ("\nEcerrando sistem...\n");
+                printf ("\nEcerrando sistema...\n");
                 break;
             default:
                 printf("Opcao invalida!\n");
@@ -139,4 +139,35 @@ void listarItens (Item mochila[], int total){
     }
 }
 //--- BUSCA SEQUENCIAL POR NOME
+void buscarItem(Item mochila[], int total){
+    char nomeBusca[30];
 
+    if (total == 0){
+        printf ("\nA mochila está vazia!\n");
+        return;
+    }
+
+    printf ("\nDigite o nome do item para busca: ");
+    fgets(nomeBusca, 30, stdin);
+    nomeBusca [strcspn(nomeBusca, "\n")] = '\0';
+
+    int pos = buscarPosicao(mochila, total, nomeBusca);
+
+    if (pos == -1){
+        printf ("\n Item não encontrado.\n");
+    } else {
+        printf ("\n Item encontrado.\n");
+        printf ("Nome: %s\n", mochila [pos].nome);
+        printf ("Tipo: %s\n", mochila[pos].tipo);
+        printf ("Quantidade: %d\n", mochila[pos].quantidade);
+    }
+}
+//--- FUNÇÃO AUXILIAR PARA BUSCA SEQUENCIAL
+int buscarPosicao (Item mochila[], int total, char nome[]){
+    for (int i = 0; i< total; i++){
+        if (strcmp(mochila[i].nome, nome)== 0){
+            return i;
+        }
+    }
+    return -1;
+}
